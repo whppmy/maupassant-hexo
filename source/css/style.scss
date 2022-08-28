@@ -35,7 +35,7 @@ body {
 }
 
 .body_container {
-    padding: 0 60px;
+    padding: 0 0px;
     max-width: 1150px;
     margin: 0 auto;
 }
@@ -2026,4 +2026,14 @@ html[data-dark='true'] {
             }
         }
     }
+}
+
+.recommended_posts {
+    padding: 0.5em 1em;
+    border-left: 3px solid #ffffff;
+    background-color: #ffffff;
+    li { margin: 5px 0; }
+    a:link { color: #836FFF; }
+    a:hover { text-decoration:underline;color: #BC8F8F}
+    a:visited { color: green; }
 }

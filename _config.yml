@@ -54,10 +54,10 @@ twikoo: ## See: https://twikoo.js.org
   region: ## Tencent CloudBase region, e.g. ap-shanghai
   path: ## Article path, e.g. window.location.pathname
 
-google_search: true ## Use Google search, true/false.
+google_search: false ## Use Google search, true/false.
 baidu_search: false ## Use Baidu search, true/false.
-swiftype: ## Your swiftype_key, e.g. m7b11ZrsT8Me7gzApciT
-self_search: false ## Use a jQuery-based local search engine, true/false.
+swiftype: false ## Your swiftype_key, e.g. m7b11ZrsT8Me7gzApciT
+self_search: true ## Use a jQuery-based local search engine, true/false.
 google_analytics: ## Your Google Analytics tracking id, e.g. UA-42425684-2
 baidu_analytics: ## Your Baidu Analytics tracking id, e.g. 8006843039519956000
 microsoft_clarity: ## Your Microsoft Clarity tracking id, e.g. zg2ctuea9j
@@ -65,7 +65,7 @@ fancybox: true ## If you want to use fancybox please set the value to true.
 show_category_count: false ## If you want to show the count of categories in the sidebar widget please set the value to true.
 toc_number: true ## If you want to add list number to toc please set the value to true.
 shareto: false ## If you want to use the share button please set the value to true, and you must have hexo-helper-qrcode installed.
-busuanzi: false ## If you want to use Busuanzi page views please set the value to true.
+busuanzi: true ## If you want to use Busuanzi page views please set the value to true.
 wordcount: false ## If you want to display the word counter and the reading time expected to spend of each post please set the value to true, and you must have hexo-wordcount installed.
 widgets_on_small_screens: false ## Set to true to enable widgets on small screens.
 canvas_nest:
@@ -75,17 +75,20 @@ canvas_nest:
   zIndex: ## The z-index property of the background, e.g. "-1"
   count: ## Quantity of lines, e.g. "150"
 donate:
-  enable: false ## If you want to display the donate button after each post, please set the value to true and fill the following items on your need. You can also enable donate button in a page by adding a "donate: true" item to the front-matter.
+  enable: ## If you want to display the donate button after each post, please set the value to true and fill the following items on your need. You can also enable donate button in a page by adding a "donate: true" item to the front-matter.
   github: ## GitHub URL, e.g. https://github.com/Kaiyuan/donate-page
-  alipay_qr: ## Path of Alipay QRcode image, e.g. /img/AliPayQR.png
-  wechat_qr: ## Path of Wechat QRcode image, e.g. /img/WeChatQR.png
+  alipay_qr: /img/AliPayQR.png ## Path of Alipay QRcode image, e.g. /img/AliPayQR.png
+  wechat_qr: /img/WeChatQR.png ## Path of Wechat QRcode image, e.g. /img/WeChatQR.png
   btc_qr: ## Path of Bitcoin QRcode image, e.g. /img/BTCQR.png
   btc_key: ## Bitcoin key, e.g. 1KuK5eK2BLsqpsFVXXSBG5wbSAwZVadt6L
   paypal_url: ## Paypal URL, e.g. https://www.paypal.me/tufu9441
+recommended_posts:
+  enable: true
+  titleHtml: <h1>相关文章<span style="font-size:0.45em; color:gray"></span></h1>
 post_copyright:
-  enable: false ## If you want to display the copyright info after each post, please set the value to true and fill the following items on your need.
-  author: ## Your author name, e.g. tufu9441
-  copyright_text: ## Your copyright text, e.g. The author owns the copyright, please indicate the source reproduced.
+  enable: ture ## If you want to display the copyright info after each post, please set the value to true and fill the following items on your need.
+  author: whppmy ## Your author name, e.g. tufu9441
+  copyright_text: 个人记录，没有获取同意时，禁止转载！！ ## Your copyright text, e.g. The author owns the copyright, please indicate the source reproduced.
 love: false ## If you want the love to appear when you click anywhere, set the value to true.
 plantuml: ## Using PlantUML to generate UML diagram, must install hexo-filter-plantuml (https://github.com/miao1007/hexo-filter-plantuml).
   render: "PlantUMLServer" ## Local or PlantUMLServer.
@@ -102,20 +105,27 @@ menu:
   - page: archive
     directory: archives/
     icon: fa-archive
-  - page: about
+  #- page: QT
+  #  directory: qt/
+  #  icon: fa-comments
+  #- page: ACM
+  #  directory: acm/
+  #  icon: fa-book
+  - page: 关于
     directory: about/
     icon: fa-user
-  - page: rss
-    directory: atom.xml
-    icon: fa-rss
+  # https://fontawesome.com/icons?from=io 图标
+  #- page: rss
+  #  directory: atom.xml
+  #  icon: fa-rss
 
 widgets: ## Seven widgets in sidebar provided: search, info, category, tag, recent_posts, recent_comments and links.
   - search
-  - info
+  #- info
   - category
   - tag
   - recent_posts
-  - recent_comments
+  #- recent_comments
   - links
 
 info:
@@ -136,18 +146,18 @@ info:
       message: RSS
 
 links:
-  - title: site-name1
-    url: http://www.example1.com/
-    src: https://www.example1.com/favicon.ico
-    desc: XXX's Blog
-  - title: site-name2
-    url: http://www.example2.com/
-    src: https://www.example1.com/favicon.ico
-    desc: YYY's Blog
-  - title: site-name3
-    url: http://www.example3.com/
-    src: https://www.example3.com/favicon.ico
-    desc: ZZZ's Blog
+#  - title: site-name1
+#    url: http://www.example1.com/
+#    src: https://www.example1.com/favicon.ico
+#    desc: XXX's Blog
+#  - title: site-name2
+#    url: http://www.example2.com/
+#    src: https://www.example1.com/favicon.ico
+#    desc: YYY's Blog
+#  - title: site-name3
+#    url: http://www.example3.com/
+#    src: https://www.example3.com/favicon.ico
+#    desc: ZZZ's Blog
 
 timeline:
   - num: 1
@@ -163,5 +173,6 @@ timeline:
 js: js
 css: css
 
+#https://github.com/huiwang/hexo-recommended-posts
 # Theme version
 version: 1.0.0

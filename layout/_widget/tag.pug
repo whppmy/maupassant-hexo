@@ -1,5 +1,40 @@
+- var path=url_for(page.path)
+
+// [ {name:'/qt'} ],  [ {name:'/acm'} ], [ {name:'/about'} ], [ {name:'/archives'} ]
+- var arrayTags = []
+- arrayTags.push([ {name:'/categories/QT'},{name:'/tags/QT基础'},{name:'/tags/QT库使用'} ])
+- arrayTags.push([ {name:'/categories/无处安放'} ])
+- arrayTags.push([ {name:'/categories/网络'} ])
+- arrayTags.push([ {name:'/categories/视频图像'} ])
+- arrayTags.push([ {name:'/categories/C++'} ])
+- arrayTags.push([ {name:'/categories/数据库'} ] )
+
+for items in arrayTags
+  for item in items
+    - if (path.includes(item.name))
+      - var subtitle = items[0].name.replace('/categories','')
+      - var tags = items
+      - tags.shift()
+      for val in tags
+        - val.name = val.name.replace('/tags/','')
+      - var find_flag = 1
+      - break
+  - if(find_flag == 1)
+    - break
+
+- if(find_flag != 1)
+  - var subtitle='/ALL'
+  - var tags=[]
+  for items in arrayTags
+    - items.shift()
+    for val in items
+      - val.name = val.name.replace('/tags/','')
+      - tags.push(val)
+
+doctype html
 .widget
   .widget-title
-    i.fa.fa-star-o= ' ' + __('tags')
+    i.fa.fa-star-o= ' ' + __('tags') + subtitle
   .tagcloud
-    != tagcloud({min_font: 15, max_font: 15, amount: 100, orderby: 'count'})
+    for item in tags
+      a.tags-list-link(href=url_for('/tags/' + item.name), title=item.name,style='font-size :15px;')=item.name

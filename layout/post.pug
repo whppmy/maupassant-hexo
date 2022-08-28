@@ -13,7 +13,7 @@ block content
           for category in page.categories.toArray()
             a(href=url_for(category.path))= category.name
       if theme.busuanzi == true
-        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
+        //script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
         span#busuanzi_container_page_pv= ' | '
           span#busuanzi_value_page_pv
           span= ' ' + __('Hits')
@@ -53,6 +53,14 @@ block content
 
     include _partial/tag.pug
     include _partial/post_nav.pug
+
+    if theme.recommended_posts.enable == true
+      div.recommended_posts
+        h3() 相关阅读
+        - var post_list = recommended_posts(page, site)
+        - for (var i in post_list)
+            li
+              a(href=post_list[i].permalink, target='_blank')= post_list[i].title
 
     if page.comments
       include _partial/comments.pug
